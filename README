@@ -8,6 +8,7 @@ It implements a contract for a Vending Machine as described in the included PDF 
 * Groovy
 * Scala
 * Ruby (via JRuby, in progress)
+* Clojure (in progress)
 
 The vending machine is accessed via OSGi service exposing only Java types, so as to test the theory that one can build OSGi services in alternative JVM languages without their clients knowing.
 
