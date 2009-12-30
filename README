@@ -24,3 +24,10 @@ DynamicImport-Package: *
 
 This does not completely fix the problems with the JRuby service, but it is definitely required at this point.
 
+- At this point, I haven't figured out how to get Clojure compilation to take place prior to Java compilation, so you'll need to execute:
+
+mvn clojure:compile
+mvn install
+
+inside the pgo-vm-clojure-impl bundle to get it properly installed to your M2 repo. At that point, the PAX Exam tests should pass.
+
