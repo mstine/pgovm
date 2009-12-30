@@ -1,0 +1,25 @@
+Polyglot OSGi Vending Machine Implementations
+
+This project is full of example code for a talk I'll be giving at the St. Louis Lambda Lounge in February, and hopefully on the 2010 NFJS Tour.
+
+It implements a contract for a Vending Machine as described in the included PDF in the following languages:
+
+* Java
+* Groovy
+* Scala
+* Ruby (via JRuby, in progress)
+
+The vending machine is accessed via OSGi service exposing only Java types, so as to test the theory that one can build OSGi services in alternative JVM languages without their clients knowing.
+
+CAVEATS:
+
+- This project heavily leverages the PAX tools available at http://wiki.ops4j.org/display/ops4j/Pax. You must have these tools installed to work with this codebase (as well the latest Maven 2).
+
+- The Scala library in the Maven REPO is not a proper OSGi bundle. You must download the Scala OSGi bundle from http://www.scala-lang.org/downloads and overwrite the version in your M2 repository for the Scala functionality to work.
+
+- The JRuby library requires the following directive to be added to its MANIFEST.MF to get going:
+
+DynamicImport-Package: *
+
+This does not completely fix the problems with the JRuby service, but it is definitely required at this point.
+
