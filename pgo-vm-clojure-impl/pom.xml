@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <relativePath>../poms/compiled/</relativePath>
+    <groupId>com.mattstine.polyglotosgi.vendingmachine.pgovm.build</groupId>
+    <artifactId>compiled-bundle-settings</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <bundle.symbolicName>com.mattstine.polyglotosgi.vendingmachine.pgo-vm-clojure-impl</bundle.symbolicName>
+    <bundle.namespace>com.mattstine.polyglotosgi.vendingmachine.clojure</bundle.namespace>
+  </properties>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mattstine.polyglotosgi.vendingmachine</groupId>
+  <artifactId>pgo-vm-clojure-impl</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>${bundle.symbolicName} [${bundle.namespace}]</name>
+
+  <packaging>bundle</packaging>
+
+  <dependencies>
+    <!--
+     | uncomment to add all imported (non-local) bundles to your compilation classpath
+    <dependency>
+      <type>pom</type>
+      <groupId>${parent.groupId}</groupId>
+      <artifactId>provision</artifactId>
+      <optional>true</optional>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi_R4_core</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi_R4_compendium</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.mattstine.polyglotosgi.vendingmachine</groupId>
+      <artifactId>pgo-vm-api</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>clojure</artifactId>
+      <version>1.0.0</version>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.theoryinpractise</groupId>
+        <artifactId>clojure-maven-plugin</artifactId>
+        <version>1.3.1</version>
+        <executions>
+          <execution>
+            <id>clojure-compile</id>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

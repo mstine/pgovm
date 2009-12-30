@@ -52,6 +52,7 @@
     <module>pgo-vm-groovy-impl</module>
     <module>pgo-vm-scala-impl</module>
     <module>pgo-vm-jruby-impl</module>
+    <module>pgo-vm-clojure-impl</module>
   </modules>
 
   <build>
