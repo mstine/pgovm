@@ -394,7 +394,7 @@ public class VendingMachineJRubyTests {
 	@Configuration
     public static Option[] configuration()
     {
-       return options(equinox(), provision(
+       return options(felix(), provision(
            mavenBundle().groupId("org.jruby").artifactId("jruby-complete").version("1.4.0"),
            mavenBundle().groupId("com.mattstine.polyglotosgi.vendingmachine").artifactId("pgo-vm-api"),
            mavenBundle().groupId("com.mattstine.polyglotosgi.vendingmachine").artifactId("pgo-vm-jruby-impl")

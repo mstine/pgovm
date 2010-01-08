@@ -5,31 +5,12 @@ import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.ops4j.pax.exam.Inject;
-import org.osgi.framework.BundleContext;
-import org.osgi.util.tracker.ServiceTracker;
 
 import com.mattstine.polyglotosgi.vendingmachine.api.Money;
 import com.mattstine.polyglotosgi.vendingmachine.api.VendingMachine;
 
-import static org.ops4j.pax.exam.CoreOptions.equinox;
-import static org.ops4j.pax.exam.CoreOptions.felix;
-import static org.ops4j.pax.exam.CoreOptions.knopflerfish;
-
-import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
-import static org.ops4j.pax.exam.CoreOptions.options;
-import static org.ops4j.pax.exam.CoreOptions.provision;
-
-import org.junit.runner.RunWith;
-import org.ops4j.pax.exam.Option;
-import org.ops4j.pax.exam.junit.Configuration;
-import org.ops4j.pax.exam.junit.JUnit4TestRunner;
-
-@RunWith(JUnit4TestRunner.class)
 public class VendingMachineClojureTests {
 	
-	@Inject
-	private BundleContext bundleContext;
 	protected VendingMachine vendingMachine;
 
 	@Test
@@ -38,13 +19,8 @@ public class VendingMachineClojureTests {
 	}
 
 	@Before
-	public void constructLanguageVendingMachine() throws InterruptedException {
-		ServiceTracker tracker = new ServiceTracker(bundleContext,
-				VendingMachine.class.getName(), null);
-		tracker.open();
-		vendingMachine = (VendingMachine) tracker.waitForService(5000);
-		System.out.println("VM IMPL = " + vendingMachine);
-		tracker.close();
+	public void constructLanguageVendingMachine() {
+		vendingMachine = (VendingMachine) new com.mattstine.polyglotosgi.vendingmachine.clojure.internal.vendingmachine_clojure_impl();
 	}
 
 	@Test
@@ -390,13 +366,4 @@ public class VendingMachineClojureTests {
 		assertEquals("[Nickle:0, Dime:0, Quarter:0, Dollar:1]", vendingMachine
 				.currentMoneyInserted());
 	}
-
-	@Configuration
-    public static Option[] configuration()
-    {
-       return options(equinox(), provision(
-           mavenBundle().groupId("com.mattstine.polyglotosgi.vendingmachine").artifactId("pgo-vm-api"),
-           mavenBundle().groupId("com.mattstine.polyglotosgi.vendingmachine").artifactId("pgo-vm-clojure-impl")
-       ));
-    }
 }
