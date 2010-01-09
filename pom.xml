@@ -53,6 +53,7 @@
     <module>pgo-vm-scala-impl</module>
     <module>pgo-vm-jruby-impl</module>
     <module>pgo-vm-clojure-impl</module>
+    <module>pgo-vm-web</module>
   </modules>
 
   <build>
@@ -87,5 +88,19 @@
       </plugin>
     </plugins>
   </build>
+
+  <repositories>
+    <repository>
+      <id>spring-osgi</id>
+      <url>http://s3.amazonaws.com/maven.springframework.org/osgi</url>
+    </repository>
+    <repository>
+      <id>OPS4J</id>
+      <url>http://repository.ops4j.org/maven2</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
 </project>

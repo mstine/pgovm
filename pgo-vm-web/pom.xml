@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <relativePath>../poms/compiled/</relativePath>
+    <groupId>com.mattstine.polyglotosgi.vendingmachine.pgovm.build</groupId>
+    <artifactId>compiled-bundle-settings</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <bundle.symbolicName>com.mattstine.polyglotosgi.vendingmachine.pgo-vm-web</bundle.symbolicName>
+    <bundle.namespace>com.mattstine.polyglotosgi.vendingmachine.web</bundle.namespace>
+    <spring.maven.artifact.version>2.5.6</spring.maven.artifact.version>
+  </properties>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mattstine.polyglotosgi.vendingmachine</groupId>
+  <artifactId>pgo-vm-web</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>${bundle.symbolicName} [${bundle.namespace}]</name>
+
+  <packaging>war</packaging>
+
+<build>
+      <finalName>web</finalName>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <extensions>true</extensions>
+            <configuration>
+               <supportedProjectTypes>
+                   <param>jar</param>
+                   <param>bundle</param>
+                   <param>war</param>
+               </supportedProjectTypes> 
+               <instructions>
+	              <Import-Package>
+		              *,
+		              org.springframework.osgi.web.context.support,
+		              org.springframework.web.servlet.view,
+					  org.springframework.web.servlet.handler,
+					  org.springframework.web.servlet.mvc.annotation,
+				      org.springframework.web.context,
+			    	  org.springframework.ui
+		          </Import-Package>
+                <Private-Package>*</Private-Package>
+                <Bundle-ClassPath>.,WEB-INF/classes</Bundle-ClassPath>
+                <Web-ContextPath>pgovm</Web-ContextPath>
+               </instructions>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>bundle-manifest</id>
+                    <phase>process-classes</phase>
+                    <goals>    
+                        <goal>manifest</goal>
+                    </goals>   
+                </execution>
+            </executions>            
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+               <archive>
+                   <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+               </archive>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+  <dependencies>
+    <!--
+     | uncomment to add all imported (non-local) bundles to your compilation classpath
+    <dependency>
+      <type>pom</type>
+      <groupId>${parent.groupId}</groupId>
+      <artifactId>provision</artifactId>
+      <optional>true</optional>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi_R4_core</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi_R4_compendium</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.maven.artifact.version}</version>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.maven.artifact.version}</version>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring.maven.artifact.version}</version>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.mattstine.polyglotosgi.vendingmachine</groupId>
+      <artifactId>pgo-vm-api</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>2.5.6</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+</project>
