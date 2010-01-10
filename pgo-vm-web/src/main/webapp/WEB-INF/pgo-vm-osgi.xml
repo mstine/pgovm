@@ -7,6 +7,10 @@
 		http://www.springframework.org/schema/osgi 
 		http://www.springframework.org/schema/osgi/spring-osgi.xsd"> 
 
-<reference id="vendingMachine" interface="com.mattstine.polyglotosgi.vendingmachine.api.VendingMachine" /> 
+<list id="vendingMachines" interface="com.mattstine.polyglotosgi.vendingmachine.api.VendingMachine" /> 
+
+<beans:bean id="vendingMachineProvider" class="com.mattstine.polyglotosgi.vendingmachine.web.VendingMachineProvider">
+	<beans:property name="vendingMachines" ref="vendingMachines"/>
+</beans:bean>
 
 </beans:beans>

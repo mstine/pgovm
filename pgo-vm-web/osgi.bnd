@@ -10,4 +10,5 @@ Import-Package: *,\
   org.springframework.web.servlet.view,\
   org.springframework.web.servlet.mvc.annotation,\
   org.springframework.web.context
+Require-Bundle: org.springframework.osgi.jstl.osgi
 Web-ContextPath: pgovm
