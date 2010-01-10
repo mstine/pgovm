@@ -12,6 +12,13 @@ It implements a contract for a Vending Machine as described in the included PDF 
 
 The vending machine is accessed via OSGi service exposing only Java types, so as to test the theory that one can build OSGi services in alternative JVM languages without their clients knowing.
 
+The project also includes a Spring Web MVC application that allows you to interact with the various vending machine implementations. You can choose what implementation you want to work with via a drop down box on the page. Run the application as follows:
+
+1) Set everything up as described in the "CAVEATS" below.
+2) Run "mvn install" from the root of the project.
+3) Run "pax-provision" from the root of the project.
+4) Access http://localhost:8080/pgovm/vm.html
+
 CAVEATS:
 
 - This project heavily leverages the PAX tools available at http://wiki.ops4j.org/display/ops4j/Pax. You must have these tools installed to work with this codebase (as well the latest Maven 2).
