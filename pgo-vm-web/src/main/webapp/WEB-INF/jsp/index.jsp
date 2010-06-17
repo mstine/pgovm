@@ -17,6 +17,29 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 	<title>Polyglot OSGi Vending Machine</title>
+	<style type="text/css">
+		.textfield {
+			width: 300px;
+		}
+		
+		.payment {
+			margin-top: 10px;
+		}
+		
+		.coinButton {
+			float: left;
+			margin-right: 5px;
+		}
+		
+		.vendItem {
+			margin-top: 10px;
+		}
+		
+		.itemButton {
+			float: left;
+			margin-right: 5px;
+		}
+	</style>
 	
 </head>
 
@@ -39,23 +62,23 @@
 	<div class="status">
 		<p>
 			<label for="bank">Bank</label>
-			<input id="bank" type="text" value="${bank}">
+			<input id="bank" type="text" value="${bank}" class="textfield">
 		</p>
 		<p>
 			<label for="inventory">Inventory</label>
-			<input id="inventory" type="text" value="${inventory}">
+			<input id="inventory" type="text" value="${inventory}" class="textfield">
 		</p>
 		<p>
 			<label for="moneyInserted">Coins Inserted</label>
-			<input id="moneyInserted" type="text" value="${moneyInserted}">
+			<input id="moneyInserted" type="text" value="${moneyInserted}" class="textfield">
 		</p>
 		<p>
 			<label for="amountInserted">Amount Inserted</label>
-			<input id="amountInserted" type="text" value="${amountInserted}">
+			<input id="amountInserted" type="text" value="${amountInserted}" class="textfield">
 		</p>
 		<p>
 			<label for="output">Machine Output</label>
-			<input id="output" type="text" value="${output}">
+			<input id="output" type="text" value="${output}" class="textfield">
 		</p>
 	</div>
 	
@@ -102,7 +125,7 @@
 			</form>
 		</div>
 	</div>
-	
+	<br/>
 	<div class="vendItem">
 		<div class="itemButton">
 			<form method="post" action="<c:url value="/buyItem.html"/>">

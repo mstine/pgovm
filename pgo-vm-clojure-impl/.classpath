@@ -2,10 +2,12 @@
   <classpathentry excluding="**/*.java" including="plugin.xml|plugin.properties|icons/**" path="." kind="src"/>
   <classpathentry path="src/main/java" kind="src"/>
   <classpathentry excluding="**/*.java" path="src/main/resources" kind="src"/>
+  <classpathentry path="src/test/java" output="target/test-classes" kind="src"/>
   <classpathentry path="target/classes" kind="output"/>
   <classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
   <classpathentry path="org.eclipse.pde.core.requiredPlugins" kind="con"/>
   <classpathentry path="M2_REPO/org/clojure/clojure/1.0.0/clojure-1.0.0.jar" kind="var"/>
+  <classpathentry path="M2_REPO/junit/junit/4.4/junit-4.4.jar" kind="var"/>
   <classpathentry path="M2_REPO/org/osgi/osgi_R4_compendium/1.0/osgi_R4_compendium-1.0.jar" kind="var"/>
   <classpathentry path="M2_REPO/org/osgi/osgi_R4_core/1.0/osgi_R4_core-1.0.jar" kind="var"/>
   <classpathentry path="M2_REPO/com/mattstine/polyglotosgi/vendingmachine/pgo-vm-api/1.0-SNAPSHOT/pgo-vm-api-1.0-SNAPSHOT.jar" kind="var"/>

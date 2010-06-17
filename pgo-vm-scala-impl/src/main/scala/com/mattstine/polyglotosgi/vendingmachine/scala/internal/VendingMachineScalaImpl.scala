@@ -1,9 +1,9 @@
 package com.mattstine.polyglotosgi.vendingmachine.scala.internal
 
 import _root_.java.util.Iterator
-import api.{Money, VendingMachine}
 import collection.jcl.MutableIterator.Wrapper
 import collection.mutable.Map
+import com.mattstine.polyglotosgi.vendingmachine.api.{VendingMachine, Money}
 
 class VendingMachineScalaImpl extends VendingMachine {
   implicit def javaIteratorToScalaIterator[A](it: Iterator[A]) = new Wrapper(it)

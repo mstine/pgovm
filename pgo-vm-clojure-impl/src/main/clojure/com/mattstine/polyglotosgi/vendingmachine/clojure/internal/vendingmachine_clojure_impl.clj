@@ -3,13 +3,11 @@
 	 :implements [com.mattstine.polyglotosgi.vendingmachine.api.VendingMachine]
 	 :state state
 	 :init init)
-	(:import [com.mattstine.polyglotosgi.vendingmachine.api.VendingMachine]
-		       [com.mattstine.polyglotosgi.vendingmachine.api.Money]))
+	(:import [com.mattstine.polyglotosgi.vendingmachine.api VendingMachine]
+		       [com.mattstine.polyglotosgi.vendingmachine.api Money]))
+		
 
-(defstruct money-state (. com.mattstine.polyglotosgi.vendingmachine.api.Money NICKLE) 
-	(. com.mattstine.polyglotosgi.vendingmachine.api.Money DIME) 
-	(. com.mattstine.polyglotosgi.vendingmachine.api.Money QUARTER) 
-	(. com.mattstine.polyglotosgi.vendingmachine.api.Money DOLLAR))
+(defstruct money-state Money/NICKLE Money/DIME Money/QUARTER Money/DOLLAR)
 	
 (defstruct item-state "A" "B" "C")
 

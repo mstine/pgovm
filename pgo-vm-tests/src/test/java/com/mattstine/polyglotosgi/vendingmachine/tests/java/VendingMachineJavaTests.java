@@ -2,6 +2,7 @@ package com.mattstine.polyglotosgi.vendingmachine.tests.java;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import static org.ops4j.pax.exam.CoreOptions.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,11 +12,6 @@ import org.osgi.util.tracker.ServiceTracker;
 
 import com.mattstine.polyglotosgi.vendingmachine.api.Money;
 import com.mattstine.polyglotosgi.vendingmachine.api.VendingMachine;
-
-import static org.ops4j.pax.exam.CoreOptions.equinox;
-import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
-import static org.ops4j.pax.exam.CoreOptions.options;
-import static org.ops4j.pax.exam.CoreOptions.provision;
 
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;
@@ -391,7 +387,7 @@ public class VendingMachineJavaTests {
 	@Configuration
     public static Option[] configuration()
     {
-       return options(equinox(), provision(              
+       return options(felix(), provision(
            mavenBundle().groupId("com.mattstine.polyglotosgi.vendingmachine").artifactId("pgo-vm-api"),
            mavenBundle().groupId("com.mattstine.polyglotosgi.vendingmachine").artifactId("pgo-vm-java-impl")
        ));
