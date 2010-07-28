@@ -394,7 +394,7 @@ public class VendingMachineScalaTests {
        return options(equinox(), provision(              
            mavenBundle().groupId("com.mattstine.polyglotosgi.vendingmachine").artifactId("pgo-vm-api"),
            mavenBundle().groupId("com.mattstine.polyglotosgi.vendingmachine").artifactId("pgo-vm-scala-impl"),
-           mavenBundle().groupId("org.scala-lang").artifactId("scala-library").version("2.7.7")
+           mavenBundle().groupId("com.weiglewilczek.scala-lang-osgi").artifactId("scala-library").version("2.8.0")
        ));
     }
 }

@@ -1,13 +1,11 @@
 package com.mattstine.polyglotosgi.vendingmachine.scala.internal
 
 import _root_.java.util.Iterator
-import collection.jcl.MutableIterator.Wrapper
+import scala.collection.JavaConversions._
 import collection.mutable.Map
 import com.mattstine.polyglotosgi.vendingmachine.api.{VendingMachine, Money}
 
 class VendingMachineScalaImpl extends VendingMachine {
-  implicit def javaIteratorToScalaIterator[A](it: Iterator[A]) = new Wrapper(it)
-
   var bank = Map(Money.NICKLE -> 0, Money.DIME -> 0, Money.QUARTER -> 0, Money.DOLLAR -> 0)
   var moneyInserted = Map(Money.NICKLE -> 0, Money.DIME -> 0, Money.QUARTER -> 0, Money.DOLLAR -> 0)
   var inventory = Map("A" -> 0, "B" -> 0, "C" -> 0)
